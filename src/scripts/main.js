@@ -13,7 +13,7 @@ class Main extends AbstractApplication {
 
 	//this.mesh.geometry.attributes.position.dynamic=true;
 	this.rings = [];
-	for ( let i = 0; i < 50; i ++ ) {
+	for ( let i = 0; i < 1; i ++ ) {
 
 		let mesh = new Ring( {
 
@@ -34,7 +34,7 @@ class Main extends AbstractApplication {
 
 	this.animate();
 
-	setTimeout( this.updateResolution.bind( this ), 0 );
+	//setTimeout( this.updateResolution.bind( this ), 0 );
 
 
 
