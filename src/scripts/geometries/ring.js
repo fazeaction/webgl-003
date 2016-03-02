@@ -9,11 +9,12 @@ class Ring extends THREE.Line{
 	this.nCoords = 3;
 	this.step = 2 * Math.PI / this.nCoords;
 	this.coords = [];
-	this.radius = options.radius || 150 ;
+	this.radius = (options.radius!==undefined)? options.radius : 150;
 	this.time=0;
+	this.shape=Math.floor(Math.random()*1+1);
 
-	this.obj_resolution = 10;
-	this.buffer_size = 10000;
+	this.obj_resolution = 99;
+	this.buffer_size = 100;
     this.rotateVelocity=Math.random()*10+0.009
     this.direction=Math.floor(Math.random()*2-1);
 
@@ -28,11 +29,9 @@ class Ring extends THREE.Line{
 
 
 
-		for(let i = 0; i < this.nCoords; i++)
+		for(let i = 0; i < this.buffer_size; i++)
 		{
-			let ang = i * this.step;
-			let x = ( this.radius ) * Math.cos( ang );
-			let y = ( this.radius ) * Math.sin( ang );
+
 			colors[ i * 3 ] = 255;//( x / r ) + 0.5;
 			colors[ i * 3 + 1 ] = 255;//( y / r ) + 0.5;
 			colors[ i * 3 + 2 ] = 255;//0;
@@ -104,9 +103,8 @@ class Ring extends THREE.Line{
 		const s = 0.6;
 
 		const positions = this.geometry.attributes.position.array;
-		const colors = this.geometry.attributes.color.array;
 		const angle_step = ( ( 360 ) / this.obj_resolution );
-		//for(let i = 0; i < this.nCoords; i++)
+
 		for(let i = 0; i < this.buffer_size; i++)
 		{
 			let r =this.radius;
@@ -115,22 +113,15 @@ class Ring extends THREE.Line{
 			ang += 0.1 * Math.cos(0.01 * this.time + ang);
 			ang += 0.25 * Math.cos(0.05 * this.time + ang);
 
-			r += s * 15 * Math.cos(5 * ang + 0.1 * this.time);
+			r += s * 15 * Math.cos(this.shape * ang + 0.1 * this.time);
 			r -= s * 15 * Math.cos(2 * ang - 0.1 * this.time);
-			r += s * 10 * Math.sin(5 * ang + 0.02 * this.time);
+			r += s * 10 * Math.sin(this.shape * ang + 0.02 * this.time);
 			r -= s * 15 * Math.sin(2 * ang - 0.01 * this.time);
-			r += s * 10 * Math.cos(2 * ang + 0.01 * this.time) * Math.sin(5 * ang + 0.1 * this.time);
-			r += s * 10 * Math.sin(5 * ang - 0.1 * this.time) * Math.sin(ang + 0.1 * this.time);
+			r += s * 10 * Math.cos(2 * ang + 0.01 * this.time) * Math.sin(this.shape * ang + 0.1 * this.time);
+			r += s * 10 * Math.sin(this.shape * ang - 0.1 * this.time) * Math.sin(ang + 0.1 * this.time);
 
 			positions[3 * i] = r * Math.cos(ang);
 			positions[3 * i + 1] = r * Math.sin(ang);
-			positions[3 * i + 2 ] = 0;
-
-			colors[ i * 3 ] = 255;
-			colors[ i * 3 + 1 ] = 255;
-			colors[ i * 3 + 2 ] = 255;
-
-
 
 		}
 

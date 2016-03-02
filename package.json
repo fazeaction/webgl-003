@@ -25,6 +25,7 @@
     "glslify": "^5.0.0",
     "glslify-fancy-imports": "^1.0.1",
     "glslify-hex": "^2.0.1",
+    "gsap": "^1.18.2",
     "lodash": "^3.10.1",
     "raw-loader": "^0.5.1",
     "three": "^0.73.0",

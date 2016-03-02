@@ -5,7 +5,7 @@ class AbstractApplication{
 
     constructor() {
 
-	this._camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 1, 1000 );
+	this._camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 1, 100000 );
 	this._camera.position.z = 400;
 
 	this._scene = new THREE.Scene();
