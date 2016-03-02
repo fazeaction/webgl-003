@@ -11,7 +11,7 @@ class Ring extends THREE.Line{
 	this.coords = [];
 	this.radius = (options.radius!==undefined)? options.radius : 150;
 	this.time=0;
-	this.shape=Math.floor(Math.random()*1+1);
+	this.shape=Math.floor(Math.random()*2+1);
 
 	this.obj_resolution = 99;
 	this.buffer_size = 100;
@@ -100,7 +100,7 @@ class Ring extends THREE.Line{
 
 	generateCoords() {
 		//x, y
-		const s = 0.6;
+		const s = 0.1;
 
 		const positions = this.geometry.attributes.position.array;
 		const angle_step = ( ( 360 ) / this.obj_resolution );
@@ -133,7 +133,8 @@ class Ring extends THREE.Line{
 
 
     update(){
-		this.generateCoords();
+		//this.generateCoords();
+		this.rotation.z+=0.1;
 		this.time += 0.5;
     }
 

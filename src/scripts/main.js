@@ -51,7 +51,7 @@ class Main extends AbstractApplication {
 
 	this.animate();
 	const tl = new TimelineMax();
-	tl.insertMultiple( this.tweens, 0, 'start', 0.3 );
+	tl.insertMultiple( this.tweens, 0, 'start', 0.5 );
 
     }
 
