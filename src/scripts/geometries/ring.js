@@ -11,7 +11,7 @@ class Ring extends THREE.Line{
 	this.coords = [];
 	this.radius = (options.radius!==undefined)? options.radius : 150;
 	this.time=0;
-	this.shape=Math.floor(Math.random()*2+1);
+	this.shape=Math.floor(Math.random()*3+1);
 
 	this.obj_resolution = 99;
 	this.buffer_size = 100;
@@ -32,9 +32,9 @@ class Ring extends THREE.Line{
 		for(let i = 0; i < this.buffer_size; i++)
 		{
 
-			colors[ i * 3 ] = 255;//( x / r ) + 0.5;
-			colors[ i * 3 + 1 ] = 255;//( y / r ) + 0.5;
-			colors[ i * 3 + 2 ] = 255;//0;
+			colors[ i * 3 ] = options.color[0];//( x / r ) + 0.5;
+			colors[ i * 3 + 1 ] = options.color[1];//( y / r ) + 0.5;
+			colors[ i * 3 + 2 ] = options.color[2];//0;
 		}
 
 
