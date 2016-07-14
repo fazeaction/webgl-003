@@ -7,4 +7,4 @@
 
 Screenshot
 
-![screenshot rings](webgl-003/screenshot.jpg)
+![screenshot rings](screenshot.jpg)
