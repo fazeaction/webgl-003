@@ -26,7 +26,7 @@ class Main extends AbstractApplication {
         for (let i = 0; i < this.numRings; i++) {
 
             let mesh = new Ring({
-                color: (i < this.numRings / 2) ? [1, 0, 0] : [1, 1, 1],
+                color: (i < this.numRings / 2) ? [1, 1, 1] : [1, 1, 1],
                 radius: 150,
                 wavesAmount: Math.floor(Math.random() * 10) + 10
 
@@ -88,7 +88,7 @@ class Main extends AbstractApplication {
         const tl2 = new TimelineMax({repeat: -1, delay: (this.numRings / 2) * this.gapRings});
         tl2.insertMultiple(this.tweens2, 0, 'start', this.gapRings);
 
-        document.addEventListener('mousemove', this.onDocumentMouseMove.bind(this), false);
+        //document.addEventListener('mousemove', this.onDocumentMouseMove.bind(this), false);
     }
 
     onDocumentMouseMove(event) {

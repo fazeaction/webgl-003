@@ -15,10 +15,10 @@ class AbstractApplication{
 	this._renderer.setSize( window.innerWidth, window.innerHeight );
 	document.body.appendChild( this._renderer.domElement );
 
-	/*this._controls = new THREE.OrbitControls( this._camera, this._renderer.domElement );
+	this._controls = new THREE.OrbitControls( this._camera, this._renderer.domElement );
 	this._controls.enableDamping = true;
 	this._controls.dampingFactor = 0.25;
-	this._controls.enableZoom = false;*/
+	this._controls.enableZoom = false;
 
 	window.addEventListener( 'resize', this.onWindowResize.bind( this ), false );
 
@@ -57,7 +57,7 @@ class AbstractApplication{
 
 	requestAnimationFrame( this.animate.bind( this ) );
 
-	//this._controls.update();
+	this._controls.update();
 	this._renderer.render( this._scene, this._camera );
 
     }
